@@ -1,0 +1,7 @@
+let storage : unit = unit;
+
+let main = ([_parameter, storage] : [unit, unit]) : [list <operation>, unit] => {
+  return [
+    (list([]) as list <operation>), storage
+  ]
+};
