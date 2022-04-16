@@ -1,2 +1,9 @@
-{ parameter unit ; storage unit ; code { CDR ; NIL operation ; PAIR } }
+{ parameter unit ;
+  storage unit ;
+  code { PUSH mutez 0 ;
+         AMOUNT ;
+         COMPARE ;
+         GT ;
+         IF { DROP ; PUSH string "This contract does not accept tokens." ; FAILWITH }
+            { CDR ; NIL operation ; PAIR } } }
 

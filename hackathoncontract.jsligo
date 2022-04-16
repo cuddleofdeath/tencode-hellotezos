@@ -1,7 +1,12 @@
-let storage : unit = unit;
+type parameter = unit;
+type storage = unit;
+type @return = [list<operation>, storage];
 
-let main = ([_parameter, storage] : [unit, unit]) : [list <operation>, unit] => {
-  return [
-    (list([]) as list <operation>), storage
-  ]
+let main = ([_action, store]: [parameter, storage]): @return => {
+  if (Tezos.amount > (0 as tez)) {
+    failwith("This contract does not accept tokens.") as @return;
+  }
+  else {
+    return [list([]) as list<operation>, store];
+  };
 };
